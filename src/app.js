@@ -114,7 +114,7 @@ function getDishCategory(dishName) {
       keywords.some(word => ing.toLowerCase().includes(word))
     );
   
-    // If no matches, return fallback
+
     if (matchedIngredients.length === 0) {
       return ["Ingredient not found in Nutrition Database"];
     }
