@@ -27,7 +27,7 @@ function getCategoryWeight(category) {
     'Dry Breakfast Item': 100,
     'Snacks': 100,
     'Sweets': 120,
-    // Add more categories as needed
+    
   };
 
   return categoryData[category] || 100; // Default to 100g if category is not found

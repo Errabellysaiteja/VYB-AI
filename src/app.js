@@ -1,5 +1,3 @@
-// src/app.js
-
 const readline = require('readline');
 const loadExcelData = require('./utils/loadExcelData');
 const { getCategoryWeight } = require('./utils/unitConversion'); // Removed convertToGrams (not used)
@@ -12,7 +10,7 @@ const rl = readline.createInterface({
 
 rl.question("Enter a dish name : ", (dishName) => {
   const result = estimateNutrition(dishName);
-  console.log(JSON.stringify(result, null, 2)); // Pretty-print JSON
+  console.log(JSON.stringify(result, null, 2)); 
   rl.close();
 });
 
@@ -67,7 +65,7 @@ function getDishCategory(dishName) {
     "gulab jamun": "Sweets",
     "chicken curry": "Non-Veg Gravy",
     "fried chicken": "Non-Veg Fry",
-    "chicken": "Non-Veg Gravy"  // Catch-all for chicken-related dishes
+    "chicken": "Non-Veg Gravy"  
   };
 
   // Check if the dish name matches any known dish
@@ -105,7 +103,7 @@ function getDishCategory(dishName) {
   
   function getIngredientsList(dishName) {
     const dish = dishName.toLowerCase();
-    const keywords = dish.split(" ").filter(w => w.length > 2); // ignore short words
+    const keywords = dish.split(" ").filter(w => w.length > 2); 
     const quantityOptions = ["1 cup", "1/2 cup", "1 tbsp", "2 tbsp", "100g", "50g"];
   
     // Extract all ingredients from nutrition source
