@@ -1,21 +1,20 @@
+// src/utils/unitConversion.js
+
 const unitConversions = {
-    "katori": 150, // in grams (converted to lowercase)
-    "piece": 50, // for example, a flatbread
-    "tbsp": 15, // tablespoon to grams
-    "cup": 250, // cup to grams (for liquids)
-    "teaspoon": 5, // teaspoon to grams
+  "katori": 150,        // grams
+  "piece": 50,          // e.g., flatbread
+  "tbsp": 15,           // tablespoon
+  "cup": 250,           // cup (liquid)
+  "teaspoon": 5         // teaspoon
 };
 
-// Function to convert the quantity to grams
+// Convert a unit and quantity into grams
 function convertToGrams(unit, quantity) {
-  unit = unit.toLowerCase(); // Convert unit to lowercase for case-insensitivity
-  if (unitConversions[unit]) {
-    return quantity * unitConversions[unit];
-  }
-  return null; // If unit is not recognized
+  unit = unit.toLowerCase().trim();
+  return unitConversions[unit] ? quantity * unitConversions[unit] : null;
 }
 
-// Function to return category weight in grams based on Food Categories
+// Estimate weight in grams based on category
 function getCategoryWeight(category) {
   const categoryData = {
     'Veg Gravy': 150,
@@ -26,11 +25,13 @@ function getCategoryWeight(category) {
     'Wet Breakfast Item': 130,
     'Dry Breakfast Item': 100,
     'Snacks': 100,
-    'Sweets': 120,
-    
+    'Sweets': 120
   };
 
-  return categoryData[category] || 100; // Default to 100g if category is not found
+  return categoryData[category] || 100; // Default to 100g
 }
 
-module.exports = { convertToGrams, getCategoryWeight };
+module.exports = {
+  convertToGrams,
+  getCategoryWeight
+};
